@@ -1,0 +1,9 @@
+[package]
+name = "rust-hmm-filterer"
+version = "0.1.0"
+authors = ["Runeblaze <facss_carpool_service@unc.edu>"]
+edition = "2018"
+
+[dependencies]
+regex = "1"
+lazy_static = "1.2.0"
