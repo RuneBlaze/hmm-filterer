@@ -58,14 +58,20 @@ fn main() {
     let file = File::open(path).unwrap();
     // let mut hmms : Vec<HmmEntry> = vec![];
     let mut cur_hmm = HmmEntry::new();
+    let mut cnt : u32 = 0;
     for maybe_line in BufReader::new(file).lines() {
         let line = maybe_line.unwrap();
         cur_hmm.append(&line);
         if is_line_end(&line) {
             if cur_hmm.is_fit() {
                 println!("{}", cur_hmm.raw);
+                cnt += 1;
+                if cnt >= 500 {
+                    break;
+                }
             }
             cur_hmm = HmmEntry::new();
         }
     }
+    println!("cnt: {}", cnt);
 }
