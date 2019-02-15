@@ -22,7 +22,7 @@ fn species_match(text : &str) -> Option<String> {
 
 fn name_match(text : &str) -> Option<String> {
     lazy_static! {
-        static ref RE : Regex = Regex::new("NAME  ([[:alnum:]_]+)").unwrap();
+        static ref RE : Regex = Regex::new("NAME  ([[:alnum:]_-]+)").unwrap();
     }
 
     if let Some(cap) = RE.captures(text) {
